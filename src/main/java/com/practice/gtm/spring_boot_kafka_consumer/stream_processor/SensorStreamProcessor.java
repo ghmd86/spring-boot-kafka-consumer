@@ -20,6 +20,6 @@ public class SensorStreamProcessor {
                 .aggregate(() -> 0.0,
                         (key, value, aggregate) -> aggregate + Double.parseDouble(value.split(":")[1].trim()),
                 Materialized.as("temperature-store")
-                ).toStream().map((Windowed<String> key, Double value) -> new KeyValue<>(key.key(), "Average temperature: " + value))
+                ).toStream().map((Windowed<String> key, Double value) -> new KeyValue<>(key.key(), "Average temperature: " + value));
     }
 }
