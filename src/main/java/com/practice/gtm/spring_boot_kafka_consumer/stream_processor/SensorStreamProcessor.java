@@ -9,6 +9,7 @@ import org.apache.kafka.streams.kstream.*;
 
 public class SensorStreamProcessor {
     public static void main(String[] args) {
+
         Properties streamsConfig = new Properties();
 
         streamsConfig.put("application.id", "sensor-data-processor");
