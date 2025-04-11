@@ -15,6 +15,7 @@ public class SensorStreamProcessor {
         streamsConfig.put("application.id", "sensor-data-processor");
         streamsConfig.put("bootstrap.servers", "172.31.238.74:9092");
         StreamsBuilder streamsBuilder = new StreamsBuilder();
+
         KStream<String, String> kStream = streamsBuilder.stream("sensor-data");
 
         kStream.groupByKey().windowedBy(TimeWindows.ofSizeWithNoGrace(Duration.ofSeconds(30)))
